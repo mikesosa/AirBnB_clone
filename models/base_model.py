@@ -8,7 +8,7 @@ Base class mother of all classes and chikens
 from uuid import uuid4
 from datetime import datetime
 from datetime import timedelta
-
+from models import storage
 
 class BaseModel:
     """Mother of classes and chickens"""
@@ -32,6 +32,7 @@ class BaseModel:
             self.updated_at = datetime.now()
         self.id = str(uuid4())
         self.created_at = datetime.now()
+        storage.new(self)
 
     def __str__(self):
         """print information"""
@@ -41,7 +42,9 @@ class BaseModel:
 
     def save(self):
         """update the attribute updated_at"""
+
         self.update_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """save in a dictionary"""
