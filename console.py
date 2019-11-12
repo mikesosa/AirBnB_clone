@@ -4,8 +4,10 @@
 Module with the entry point of the command interpreter
 ======================================================
 """
-
-import cmd, os, shlex, json
+import cmd
+import os
+import shlex
+import json
 from models.base_model import BaseModel
 from models.user import User
 from models.city import City
@@ -16,13 +18,13 @@ from models.state import State
 from models import storage
 
 
-
 class HBNBCommand(cmd.Cmd):
     """command interpreter class"""
 
     intro = 'Welcome the Airbnb console, type help for help or quit for close'
     prompt = '(hbnb) '
-    classes = ["BaseModel", "User", "Place", "State", "City", "Amenity", "Review"] # List of classes we might need
+    classes = ["BaseModel", "User", "Place",  # List of classes we might need
+               "State", "City", "Amenity", "Review"]
 
     def do_quit(self, arg):
         """method for close and exit from the console"""
@@ -38,12 +40,12 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
 
         if len(arg) < 1:
-            print ("** class name missing **")
-        elif not arg in HBNBCommand.classes:
+            print("** class name missing **")
+        elif arg not in HBNBCommand.classes:
             print("** class doesn't exist **")
         else:
             new = eval(arg)()
-            new.save() # this saves it into the file.json
+            new.save()  # this saves it into the file.json
             print(new.id)
 
     def do_show(self, arg):
@@ -58,10 +60,11 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             key = data[0] + "." + data[1]
-            if not key in storage.all():
+            if key not in storage.all():
                 print("** no instance found **")
             else:
-                my_list.append("[{}] ({}) {}".format(data[0], data[1], storage.all()[key])) 
+                my_list.append("[{}] ({}) {}".format(data[0],
+                               data[1], storage.all()[key]))
                 print(my_list)
 
     def do_destroy(self, arg):
@@ -75,17 +78,17 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             key = data[0] + "." + data[1]
-            if not key in storage.all():
+            if key not in storage.all():
                 print("** no instance found **")
             else:
-                storage.all().pop(key) # Deletes the key of the dict
-                storage.save() # Saves the file,json
+                storage.all().pop(key)  # Deletes the key of the dict
+                storage.save()  # Saves the file,json
 
     def do_all(self, arg):
 
         data = shlex.split(arg)
         my_list = []
-        if len(arg) < 1: # If only typed all
+        if len(arg) < 1:  # If only typed all
             # Print all the items of storage
             for key, value in storage.all().items():
                 c_name, c_id = key.split(".")
@@ -95,7 +98,7 @@ class HBNBCommand(cmd.Cmd):
             if not data[0] in HBNBCommand.classes:
                 print("** class doesn't exist **")
             else:
-                #print all the keys with data[0]
+                # print all the keys with data[0]
                 for key, value in storage.all().items():
                     c_name, c_id = key.split(".")
                     if c_name == data[0]:
@@ -103,9 +106,10 @@ class HBNBCommand(cmd.Cmd):
                 print(my_list)
 
     def do_update(self, arg):
-        """ Updates and instance: update <class name> <id> <attribute name> '<attribute value>'"""
+        """Updates and instance"""
 
-        data = shlex.split(arg) # Splits in shell syntax (for strings as arguments)
+        # Splits in shell syntax (for strings as arguments)
+        data = shlex.split(arg)
         if len(data) < 1:
             print("** class name missing **")
         elif not data[0] in HBNBCommand.classes:
@@ -114,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             key = data[0] + "." + data[1]
-            if not key in storage.all():
+            if key not in storage.all():
                 print("** no instance found **")
             elif len(data) < 3:
                 print("** attribute name missing **")

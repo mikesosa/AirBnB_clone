@@ -10,6 +10,7 @@ from datetime import datetime
 from datetime import timedelta
 import models
 
+
 class BaseModel:
     """Mother of classes and chickens"""
 
@@ -57,7 +58,7 @@ class BaseModel:
         for key, value in self.__dict__.items():
             my_dic["__class__"] = self.__class__.__name__
             if key == "created_at" or key == "updated_at":
-                my_dic[key] = value.isoformat() # convert to string
+                my_dic[key] = value.isoformat()  # convert to string
             else:
                 my_dic[key] = value
         return my_dic

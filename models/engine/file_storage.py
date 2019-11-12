@@ -48,8 +48,8 @@ class FileStorage:
         nothing. no exceptions should raise """
 
         obj_dict = {"BaseModel": BaseModel, "User": User, "Place": Place,
-                     "State": State, "City": City, "Amenity": Amenity,
-                     "Review": Review}
+                    "State": State, "City": City, "Amenity": Amenity,
+                    "Review": Review}
         if os.path.isfile(self.__file_path):
             with open(self.__file_path, mode='r', encoding='utf-8') as f:
                 x = json.loads(f.read())
