@@ -21,12 +21,11 @@ class BaseModel:
 
                 if key == "updated_at" or key == "created_at":
                     # reversing iso format to datetime
-                    # we did not check created_at because its
-                    # overwritten at the end.
                     value, _, m_seconds = value.partition(".")
                     value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S")
                     m_seconds = int(m_seconds.rstrip("Z"), 10)
                     value += timedelta(microseconds=m_seconds)
+                    # Assingning all the values
                     setattr(self, key, value)
                 elif key == "__class__":
                     pass
