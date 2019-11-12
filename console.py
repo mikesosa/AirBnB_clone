@@ -117,26 +117,13 @@ class HBNBCommand(cmd.Cmd):
             elif len(data) < 4:
                 print("** value missing **")
             else:
-                # storage.all()[key][data[2]] = data[3]
-                # storage.save()\
-                obj_dict = {"BaseModel": BaseModel}
-                print(storage.all())
-                print("-----")  
-                x = storage.all().get(key).to_dict()
-                x[data[2]] = data[3]
-                for k, v in x.items():
-                    # print (x)
-                    print(k, v)
-                    storage.all()[k] = obj_dict[v["__class__"]](**v)
-                print(x)
-                print("-----")
-
-                # x = json.loads(storage.all())
-                
-                # for k, v in x.items():
-                #     # print (x)
-                #     self.__objects[k] = obj_dict[v["__class__"]](**v)
-                pass
+                if key not in storage.all():
+                    print("** no instance found **")
+                else:
+                    obj = storage.all().get(key)
+                    setattr(obj, data[2], data[3])
+                    storage.save() 
+            # Do we need to check the agument type???
 
     def do_clear(self, arg):
         """Clearses the screen"""
@@ -150,3 +137,22 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
+
+
+
+                # if key not in storage.all():
+                #     print("** no instance found **")
+                # else:  # we have a match! now check the data types
+                #     obj = storage.all().get(key, 0)
+                #     # try:  # we will try to set attr
+                #     setattr(obj, data[2], data[3])
+                #     # except AttributeError:  # the attr data type is bad
+                #     #     try:  # try with int casting, it it works yey
+                #     #         val = int(tokenize[3])
+                #     #     except ValueError:
+                #     #         try:  # try with float cause int didnt work
+                #     #             val = float(tokenize[3])
+                #     #         except ValueError:
+                #     #             val = str(tokenize[3])  # try with str
+                #     #     setattr(obj, tokenize[2], val)  # set attribute
+                #     storage.save()  # save the object to storage
