@@ -18,6 +18,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIs(type(dog.created_at), datetime)
         self.assertIs(type(dog.updated_at), datetime)
         self.assertNotEqual(dog.created_at, dog.updated_at)
+        dog.save()
 
     def test_save_model(self):
         """ tests to see if the return type of save is a string """
@@ -25,6 +26,7 @@ class TestBaseModel(unittest.TestCase):
         dog.save()
         self.assertIsInstance(dog.to_dict()['created_at'], str)
         self.assertIsInstance(dog.to_dict()['updated_at'], str)
+        # self.assertNotEqual(old_updated, dog.updated_at)
         d = dog.to_dict()
         self.assertEqual(type(d), dict)
         self.assertEqual(d['__class__'], "BaseModel")
