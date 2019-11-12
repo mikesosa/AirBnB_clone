@@ -30,13 +30,13 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg):
         """method for close and exit from the console"""
 
-        print("Chao PapAA")
-        exit()
+        exit(1)
 
     def do_EOF(self, arg):
         """method for exit from the console"""
-        print("\nya no hay mas que leer")
-        exit()
+
+        print()
+        return True
 
     def do_create(self, arg):
         """method for create a new object"""
