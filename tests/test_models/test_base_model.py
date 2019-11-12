@@ -28,6 +28,7 @@ class TestBaseModel(unittest.TestCase):
         dog.save()
         self.assertIsInstance(dog.to_dict()['created_at'], str)
         self.assertIsInstance(dog.to_dict()['updated_at'], str)
+        old_updated = dog.created_at
         self.assertNotEqual(old_updated, dog.updated_at)
         d = dog.to_dict()
         self.assertEqual(type(d), dict)
