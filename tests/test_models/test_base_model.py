@@ -36,21 +36,5 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(d['updated_at'], dog.updated_at.isoformat())
         self.assertEqual(d['id'], dog.id)
 
-    def test_init_with_dict(self):
-        """testing init method"""
-        dd = {"id": "123-123-123",
-              "key1": "val1", "key2": "val2", "key3": "val3"}
-        b = BaseModel(**dd)
-        self.assertEqual(b.id, "123-123-123")
-        self.assertEqual(b.key1, "val1")
-        self.assertEqual(b.key2, "val2")
-        self.assertEqual(b.key3, "val3")
-
-    def test_doc_strings(self):
-        """ tests if there are doc strings to all methods """
-        self.assertTrue(BaseModel.__doc__)
-        self.assertTrue(BaseModel.save.__doc__)
-        self.assertTrue(BaseModel.to_dict.__doc__)
-
 if __name__ == '__main__':
     unittest.main()
