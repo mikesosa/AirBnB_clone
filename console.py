@@ -8,8 +8,12 @@ Module with the entry point of the command interpreter
 import cmd, os, shlex, json
 from models.base_model import BaseModel
 from models.user import User
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+from models.state import State
 from models import storage
-
 
 
 
@@ -18,7 +22,7 @@ class HBNBCommand(cmd.Cmd):
 
     intro = 'Welcome the Airbnb console, type help for help or quit for close'
     prompt = '(hbnb) '
-    classes = ["BaseModel", "User"] # List of classes we might need
+    classes = ["BaseModel", "User", "Place", "State", "City", "Amenity", "Review"] # List of classes we might need
 
     def do_quit(self, arg):
         """method for close and exit from the console"""
