@@ -4,6 +4,7 @@
 Module with the entry point of the command interpreter
 ======================================================
 """
+
 import cmd
 import os
 import shlex
@@ -30,14 +31,15 @@ class HBNBCommand(cmd.Cmd):
         """method for close and exit from the console"""
 
         print("Chao PapAA")
-        return True
+        exit()
 
     def do_EOF(self, arg):
         """method for exit from the console"""
         print("\nya no hay mas que leer")
-        return True
+        exit()
 
     def do_create(self, arg):
+        """method for create a new object"""
 
         if len(arg) < 1:
             print("** class name missing **")
@@ -49,6 +51,7 @@ class HBNBCommand(cmd.Cmd):
             print(new.id)
 
     def do_show(self, arg):
+        """Method for show a specific object wiht the id option"""
 
         data = arg.split()
         my_list = []
@@ -68,6 +71,7 @@ class HBNBCommand(cmd.Cmd):
                 print(my_list)
 
     def do_destroy(self, arg):
+        """Method for delete a object"""
 
         data = arg.split()
         if len(data) < 1:
@@ -85,6 +89,7 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()  # Saves the file,json
 
     def do_all(self, arg):
+        """Method for listed all abjects in a list"""
 
         data = shlex.split(arg)
         my_list = []
