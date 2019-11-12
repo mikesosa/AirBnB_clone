@@ -118,13 +118,13 @@ class TestFileStorage(unittest.TestCase):
     #             "Found code style errors (and warnings).")
     #     # this doesnt work lol
 
-    # def test_methods(self):
-    #     """ tests the public instance mthods """
-    #     bm = FileStorage()
-    #     self.assertTrue(hasattr(bm, "all"))
-    #     self.assertTrue(hasattr(bm, "new"))
-    #     self.assertTrue(hasattr(bm, "save"))
-    #     self.assertTrue(hasattr(bm, "reload"))
+    def test_methods(self):
+        """ tests the public instance mthods """
+        bm = FileStorage()
+        self.assertTrue(hasattr(bm, "all"))
+        self.assertTrue(hasattr(bm, "new"))
+        self.assertTrue(hasattr(bm, "save"))
+        self.assertTrue(hasattr(bm, "reload"))
 
     # def test_save(self):
     #     """ tests the save(self) in BaseModel.
@@ -162,9 +162,9 @@ class TestFileStorage(unittest.TestCase):
     #     self.assertIsInstance(bm.to_dict()['created_at'], str)
     #     self.assertIsInstance(bm.to_dict()['updated_at'], str)
 
-    # def test_has_attr(self):
-    #     """ tests if the base model has the attr """
-    #     self.assertTrue(hasattr(BaseModel, "save"))
+    def test_has_attr(self):
+        """ tests if the base model has the attr """
+        self.assertTrue(hasattr(BaseModel, "save"))
 
 if __name__ == "__main__":
     unittest.main()
