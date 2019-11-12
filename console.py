@@ -7,23 +7,23 @@ Module with the entry point of the command interpreter
 
 import cmd, os, shlex, json
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
-classes = ["BaseModel"] # List of classes we might need
+
 
 class HBNBCommand(cmd.Cmd):
     """command interpreter class"""
 
     intro = 'Welcome the Airbnb console, type help for help or quit for close'
     prompt = '(hbnb) '
-    
+    classes = ["BaseModel", "User"] # List of classes we might need
 
     def do_quit(self, arg):
         """method for close and exit from the console"""
 
         print("Chao PapAA")
-        # quit()
         return True
 
     def do_EOF(self, arg):
@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
 
         if len(arg) < 1:
             print ("** class name missing **")
-        elif not arg in classes:
+        elif not arg in HBNBCommand.classes:
             print("** class doesn't exist **")
         else:
             new = eval(arg)()
@@ -48,7 +48,7 @@ class HBNBCommand(cmd.Cmd):
         my_list = []
         if len(data) < 1:
             print("** class name missing **")
-        elif not data[0] in classes:
+        elif not data[0] in HBNBCommand.classes:
             print("** class doesn't exist **")
         elif len(data) < 2:
             print("** instance id missing **")
@@ -56,7 +56,7 @@ class HBNBCommand(cmd.Cmd):
             key = data[0] + "." + data[1]
             if not key in storage.all():
                 print("** no instance found **")
-            else:  
+            else:
                 my_list.append("[{}] ({}) {}".format(data[0], data[1], storage.all()[key])) 
                 print(my_list)
 
@@ -65,7 +65,7 @@ class HBNBCommand(cmd.Cmd):
         data = arg.split()
         if len(data) < 1:
             print("** class name missing **")
-        elif not data[0] in classes:
+        elif not data[0] in HBNBCommand.classes:
             print("** class doesn't exist **")
         elif len(data) < 2:
             print("** instance id missing **")
@@ -73,7 +73,7 @@ class HBNBCommand(cmd.Cmd):
             key = data[0] + "." + data[1]
             if not key in storage.all():
                 print("** no instance found **")
-            else:   
+            else:
                 storage.all().pop(key) # Deletes the key of the dict
                 storage.save() # Saves the file,json
 
@@ -88,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
                 my_list.append("{}".format(value))
             print(my_list)
         else:
-            if not data[0] in classes:
+            if not data[0] in HBNBCommand.classes:
                 print("** class doesn't exist **")
             else:
                 #print all the keys with data[0]
@@ -104,7 +104,7 @@ class HBNBCommand(cmd.Cmd):
         data = shlex.split(arg) # Splits in shell syntax (for strings as arguments)
         if len(data) < 1:
             print("** class name missing **")
-        elif not data[0] in classes:
+        elif not data[0] in HBNBCommand.classes:
             print("** class doesn't exist **")
         elif len(data) < 2:
             print("** instance id missing **")
@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     obj = storage.all().get(key)
                     setattr(obj, data[2], data[3])
-                    storage.save() 
+                    storage.save()
             # Do we need to check the agument type???
 
     def do_clear(self, arg):
@@ -137,22 +137,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-
-
-
-                # if key not in storage.all():
-                #     print("** no instance found **")
-                # else:  # we have a match! now check the data types
-                #     obj = storage.all().get(key, 0)
-                #     # try:  # we will try to set attr
-                #     setattr(obj, data[2], data[3])
-                #     # except AttributeError:  # the attr data type is bad
-                #     #     try:  # try with int casting, it it works yey
-                #     #         val = int(tokenize[3])
-                #     #     except ValueError:
-                #     #         try:  # try with float cause int didnt work
-                #     #             val = float(tokenize[3])
-                #     #         except ValueError:
-                #     #             val = str(tokenize[3])  # try with str
-                #     #     setattr(obj, tokenize[2], val)  # set attribute
-                #     storage.save()  # save the object to storage
