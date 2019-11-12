@@ -31,14 +31,14 @@ class HBNBCommand(cmd.Cmd):
         """Quit command to exit the program
         """
 
-        exit()
+        return True
 
     def do_EOF(self, arg):
         """method for exit from the console
         """
 
         print()
-        exit()
+        return True
 
     def emptyline(self):
         """empty line
@@ -154,7 +154,7 @@ class HBNBCommand(cmd.Cmd):
     # def do_clear(self, arg):
     #     """Clearses the screen
     #     """
-        
+
     #     os.system('clear')
 
 
