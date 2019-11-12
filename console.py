@@ -5,7 +5,6 @@ Module with the entry point of the command interpreter
 ======================================================
 """
 import cmd
-import os
 import shlex
 import json
 from models.base_model import BaseModel
@@ -21,7 +20,7 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """command interpreter class"""
 
-    # intro = 'Welcome the Airbnb console, type help for help or quit for close'
+    # intro = 'Welcome the Airbnb console'
     prompt = '(hbnb) '
     classes = ["BaseModel", "User", "Place",  # List of classes we might need
                "State", "City", "Amenity", "Review"]
@@ -37,6 +36,8 @@ class HBNBCommand(cmd.Cmd):
         exit()
 
     def do_create(self, arg):
+        """method for create a new object
+        """
 
         if len(arg) < 1:
             print("** class name missing **")
@@ -48,6 +49,8 @@ class HBNBCommand(cmd.Cmd):
             print(new.id)
 
     def do_show(self, arg):
+        """Method for show a specific object wiht the id option
+        """
 
         data = arg.split()
         my_list = []
@@ -67,6 +70,8 @@ class HBNBCommand(cmd.Cmd):
                 print(my_list)
 
     def do_destroy(self, arg):
+        """Method for delete a object
+        """
 
         data = arg.split()
         if len(data) < 1:
@@ -84,6 +89,8 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()  # Saves the file,json
 
     def do_all(self, arg):
+        """Method for listed all abjects in a list
+        """
 
         data = shlex.split(arg)
         my_list = []
@@ -131,11 +138,6 @@ class HBNBCommand(cmd.Cmd):
                     setattr(obj, data[2], data[3])
                     storage.save()
             # Do we need to check the agument type???
-
-    def do_clear(self, arg):
-        """Clearses the screen"""
-
-        os.system('clear')
 
     def emptyline(self):
         """empty line"""
