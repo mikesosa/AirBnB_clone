@@ -6,7 +6,6 @@ Module with the entry point of the command interpreter
 """
 
 import cmd
-import os
 import shlex
 import json
 from models.base_model import BaseModel
@@ -22,7 +21,7 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """command interpreter class"""
 
-    intro = 'Welcome the Airbnb console, type help for help or quit for close'
+    # intro = 'Welcome the Airbnb console, type help for help or quit for close'
     prompt = '(hbnb) '
     classes = ["BaseModel", "User", "Place",  # List of classes we might need
                "State", "City", "Amenity", "Review"]
