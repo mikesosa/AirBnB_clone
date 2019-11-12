@@ -29,18 +29,21 @@ class HBNBCommand(cmd.Cmd):
                "State", "City", "Amenity", "Review"]
 
     def do_quit(self, arg):
-        """method for close and exit from the console"""
+        """Quit command to exit the program
+        """
 
         sys.exit(1)
 
     def do_EOF(self, arg):
-        """method for exit from the console"""
+        """method for exit from the console
+        """
 
         print()
         return True
 
     def do_create(self, arg):
-        """method for create a new object"""
+        """method for create a new object
+        """
 
         if len(arg) < 1:
             print("** class name missing **")
@@ -52,7 +55,8 @@ class HBNBCommand(cmd.Cmd):
             print(new.id)
 
     def do_show(self, arg):
-        """Method for show a specific object wiht the id option"""
+        """Method for show a specific object wiht the id option
+        """
 
         data = arg.split()
         my_list = []
@@ -72,7 +76,8 @@ class HBNBCommand(cmd.Cmd):
                 print(my_list)
 
     def do_destroy(self, arg):
-        """Method for delete a object"""
+        """Method for delete a object
+        """
 
         data = arg.split()
         if len(data) < 1:
@@ -90,7 +95,8 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()  # Saves the file,json
 
     def do_all(self, arg):
-        """Method for listed all abjects in a list"""
+        """Method for listed all abjects in a list
+        """
 
         data = shlex.split(arg)
         my_list = []
@@ -112,7 +118,8 @@ class HBNBCommand(cmd.Cmd):
                 print(my_list)
 
     def do_update(self, arg):
-        """Updates and instance"""
+        """Updates and instance
+        """
 
         # Splits in shell syntax (for strings as arguments)
         data = shlex.split(arg)
@@ -140,12 +147,14 @@ class HBNBCommand(cmd.Cmd):
             # Do we need to check the agument type???
 
     def do_clear(self, arg):
-        """Clearses the screen"""
+        """Clearses the screen
+        """
 
         os.system('clear')
 
     def emptyline(self):
-        """empty line"""
+        """empty line
+        """
 
         pass
 
