@@ -4,8 +4,8 @@
 Module with the entry point of the command interpreter
 ======================================================
 """
-
 import cmd
+import os
 import shlex
 import json
 from models.base_model import BaseModel
@@ -21,32 +21,22 @@ from models import storage
 class HBNBCommand(cmd.Cmd):
     """command interpreter class"""
 
+    # intro = 'Welcome the Airbnb console, type help for help or quit for close'
     prompt = '(hbnb) '
     classes = ["BaseModel", "User", "Place",  # List of classes we might need
                "State", "City", "Amenity", "Review"]
 
     def do_quit(self, arg):
-        """Quit command to exit the program
-        """
-        print("chao PappAAA")
+        """method for close and exit from the console"""
+
         return True
 
     def do_EOF(self, arg):
-        """method for exit from the console
-        """
-
-        print("Nos Fuimos!!")
-        return True
-
-    def emptyline(self):
-        """empty line
-        """
-
-        pass
+        """method for exit from the console"""
+        print()
+        exit()
 
     def do_create(self, arg):
-        """method for create a new object
-        """
 
         if len(arg) < 1:
             print("** class name missing **")
@@ -58,8 +48,6 @@ class HBNBCommand(cmd.Cmd):
             print(new.id)
 
     def do_show(self, arg):
-        """Method for show a specific object wiht the id option
-        """
 
         data = arg.split()
         my_list = []
@@ -79,8 +67,6 @@ class HBNBCommand(cmd.Cmd):
                 print(my_list)
 
     def do_destroy(self, arg):
-        """Method for delete a object
-        """
 
         data = arg.split()
         if len(data) < 1:
@@ -91,15 +77,13 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             key = data[0] + "." + data[1]
-        if key not in storage.all():
-            print("** no instance found **")
-        else:
-            storage.all().pop(key)  # Deletes the key of the dict
-            storage.save()  # Saves the file,json
+            if key not in storage.all():
+                print("** no instance found **")
+            else:
+                storage.all().pop(key)  # Deletes the key of the dict
+                storage.save()  # Saves the file,json
 
     def do_all(self, arg):
-        """Method for listed all abjects in a list
-        """
 
         data = shlex.split(arg)
         my_list = []
@@ -121,8 +105,7 @@ class HBNBCommand(cmd.Cmd):
                 print(my_list)
 
     def do_update(self, arg):
-        """Updates and instance
-        """
+        """Updates and instance"""
 
         # Splits in shell syntax (for strings as arguments)
         data = shlex.split(arg)
@@ -147,13 +130,17 @@ class HBNBCommand(cmd.Cmd):
                     obj = storage.all().get(key)
                     setattr(obj, data[2], data[3])
                     storage.save()
-                # Do we need to check the agument type???
+            # Do we need to check the agument type???
 
     def do_clear(self, arg):
-        """Clearses the screen
-        """
+        """Clearses the screen"""
 
         os.system('clear')
+
+    def emptyline(self):
+        """empty line"""
+
+        pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
