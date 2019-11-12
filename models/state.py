@@ -13,4 +13,3 @@ class State(BaseModel):
     """class that inherits form BaseModel and save the state name"""
 
     name = ""
-aja

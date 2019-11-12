@@ -13,4 +13,3 @@ class Amenity(BaseModel):
     """class that inherits from BaseModel and save the amenity"""
 
     name = ""
-aja
