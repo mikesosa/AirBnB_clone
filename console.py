@@ -9,6 +9,7 @@ import cmd
 import os
 import shlex
 import json
+import sys
 from models.base_model import BaseModel
 from models.user import User
 from models.city import City
@@ -30,7 +31,7 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg):
         """method for close and exit from the console"""
 
-        exit(1)
+        sys.exit(1)
 
     def do_EOF(self, arg):
         """method for exit from the console"""
