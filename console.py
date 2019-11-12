@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, arg):
         """method for exit from the console"""
         print("\nya no hay mas que leer")
-        exit()
+        return True
 
     def do_create(self, arg):
 
