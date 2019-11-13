@@ -109,7 +109,7 @@ this is the first version V.0.0 for Holberton peer learning.
 ---Yesid Gutierrez  944@holbertonshcool.com                                    
 
 ## FOLDERS AND FILES
-                                                                               
+```                                                                            
 |--:file_folder: models                                                        
 |                |--__init__.py                                                
 |                |--amenity.py                                                 
@@ -119,3 +119,4 @@ this is the first version V.0.0 for Holberton peer learning.
 |		 |--review.py                                                  
 |		 |--state.py                                                   
 |		 |--user.py                                                    
+```
