@@ -144,5 +144,21 @@ class HBNBCommand(cmd.Cmd):
 
         pass
 
+    def default(self, arg):
+        """Takes the default input and process it"""
+        my_methods = {"all": self.do_all, "destroy": self.do_destroy,
+                      "update": self.do_update, "show": self.do_show}
+        data = arg.split(".")
+        if len(data) < 2:
+            print("** missing arguments **")
+        else:
+            key = data[1]
+            if key[-2:] != "()":
+                print("** invalid command **")
+            elif key[:-2] not in my_methods:
+                print("** method does not exist **")
+            else:
+                my_methods[key[:-2]](data[0])
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
