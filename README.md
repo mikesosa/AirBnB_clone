@@ -105,17 +105,17 @@ this is the first version V.0.0 for Holberton peer learning.
 
 ## Authors
 
----Michael Sosa  833@holbertonschool.com                                      
+---Michael Sosa  833@holbertonschool.com                                       
 ---Yesid Gutierrez  944@holbertonshcool.com                                    
 
 ## FOLDERS AND FILES
-
-|--:file_folder: models
-|                |--__init__.py
-|                |--amenity.py
-|		 |--base_model.py
-|		 |--city.py
-|		 |--place.py
-|		 |--review.py
-|		 |--state.py
-|		 |--user.py
+                                                                               
+|--:file_folder: models                                                        
+|                |--__init__.py                                                
+|                |--amenity.py                                                 
+|		 |--base_model.py                                              
+|		 |--city.py                                                    
+|		 |--place.py                                                   
+|		 |--review.py                                                  
+|		 |--state.py                                                   
+|		 |--user.py                                                    
