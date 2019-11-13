@@ -110,31 +110,34 @@ this is the first version V.0.0 for Holberton peer learning.
 
 ## FOLDERS AND FILES
 ```                                                                            
-|--models:                                                        
+|--models:    ====FOLDER====                                                        
+	|--engine:    ====FOLDER====
+		|--__init__.py     #empty file
+		|--file_storage    #FileStorage class with __init__, all, new, save and reload methos
         |--__init__.py      #init file for the module                          
-        |--amenity.py       #Amenity(BaseModel) class                                     
-	|--base_model.py    #BaseModel super class with save, to_dict, __str__ and __init__ class 
+        |--amenity.py       #Amenity(BaseModel) class with public attributes                                     
+	|--base_model.py    #BaseModel super class with save, to_dict, __str__ and __init__ methods 
 	|--city.py          #City(BaseModel) class with public attributes state_id and name
 	|--place.py         #Place(BaseModel) class with puclic attributes city_id, user_id, name, description, number_rooms, number_bathrooms, max_guest, price_by_night, latitude, longitude and amenity_ids
 	|--review.py        #Review(BaseModel) class with public attributes place_id, user_id and text
 	|--state.py         #State(BaseModel) class with public attributes name
 	|--user.py          #User(BaseModel) class with public attributes email, password, first_name and last_name.
-|--tests:
-	|--test_models:
-		|--test_engine:
-			|--__init__.py
-			|--test_file_storage.py
-		|--__init__.py
-		|--test_amenity.py
-		|--test_base_model.py
-		|--test_city.py
-		|--test_place.py
-		|--test_review.py
-		|--test_state.py
-		|--test_user.py
-	|--__init__.py
-|--.gitignore
-|--AUTHORS
-|--README.MD
-|--console.py
+|--tests:    #====FOLDER=====
+	|--test_models:    # ====FOLDER====
+		|--test_engine:    # ====FOLDER====
+			|--__init__.py              #empty file
+			|--test_file_storage.py     #test for FileStorage class
+		|--__init__.py           #
+		|--test_amenity.py       #test for Amenity class
+		|--test_base_model.py    #test for BaseModel class
+		|--test_city.py          #test for City class
+		|--test_place.py         #test for Place class
+		|--test_review.py        #test for Review class
+		|--test_state.py         #test for State class
+		|--test_user.py          #test for User class
+	|--__init__.py    #empty file
+|--.gitignore    #for github ignore extentions files
+|--AUTHORS       #who write the code in this project
+|--README.MD     #file with general description about this project
+|--console.py    #Making the console with the clas HBNBCommand and implement the commands: show, create, quit, Ctrl + d, destroy, all, update and emptyline
 ```
