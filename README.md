@@ -18,9 +18,10 @@
 - What is **kwargs and how to use it
 - How to handle named arguments in a function                                   
 ## Examples                                                                     
+EXAMPLE 1:
 
 ```
-from models.base_model import BaseModel
+The input:
 
 my_model = BaseModel()
 my_model.name = "Holberton"
@@ -48,7 +49,28 @@ JSON of my_model:
     created_at: (<class 'str'>) - 2017-09-28T21:05:54.119427from models.base_model import BaseModel
 ```
 for more information se the file: models/base_model.py
-                                                                                
+
+EXAMPLE 2:
+
+The input:
+program that contains the entry point of the command interpreter:
+
+The output:
+```
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb) 
+(hbnb) help quit
+Quit command to exit the program
+
+(hbnb) 
+(hbnb) 
+(hbnb) quit 
+```
 ## Prerequisites
 
 
