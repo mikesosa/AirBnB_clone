@@ -48,7 +48,7 @@ JSON of my_model:
     id: (<class 'str'>) - b6a6e15c-c67d-4312-9a75-9d084935e579
     created_at: (<class 'str'>) - 2017-09-28T21:05:54.119427from models.base_model import BaseModel
 ```
-for more information se the file: models/base_model.py
+for more information see the file: models/base_model.py
 
 EXAMPLE 2:
 
@@ -71,24 +71,41 @@ Quit command to exit the program
 (hbnb) 
 (hbnb) quit 
 ```
+for more information see the file console.py
 ## Prerequisites
 
+knowledge in python3:
+- Tuples
+- Strings
+- Dictionaries(in this project is so important)
+- Methods
+- Classes
+- Unittest
+- __init__ files
+- Libraries(os, shlex, unittest, uuid, datatime, json)
+- *args and **kargs
+- Serialization/deserealization in JSON
+- Docstrings
+- pep8
 
 ## Installing
-
+You can fork/clone the repository and run it in your pc, you need python3.
 ## Built With
-
+- Python 3.4.3
+- pep8
 ## Contributing
 
 -- Michael Sos - Holberton Student                                              
 -- Yesid Gutierrez - Holberton Student                                          
+
 ## Versioning
 
-
+This project was developed like a part for a full AirBnb clone using python.
+this is the first version V.0.0 for Holberton peer learning.
 
 ## Authors
 
----Michael Sosa  algo@holbertonschool.com                                      
+---Michael Sosa  833@holbertonschool.com                                      
 ---Yesid Gutierrez  944@holbertonshcool.com                                    
 
 ## Projects
