@@ -153,12 +153,20 @@ class HBNBCommand(cmd.Cmd):
             print("** missing arguments **")
         else:
             key = data[1]
-            if key[-2:] != "()":
-                print("** invalid command **")
-            elif key[:-2] not in my_methods:
-                print("** method does not exist **")
+            if data[1] == "count()" and data[0] in HBNBCommand.classes:
+                count = 0
+                for key in storage.all().keys():
+                    clas = key.split('.')
+                    if clas[0] == data[0]:
+                        count += 1
+                print(count)
             else:
-                my_methods[key[:-2]](data[0])
+                if key[-2:] != "()":
+                    print("** invalid command **")
+                elif key[:-2] not in my_methods:
+                    print("** method does not exist **")
+                elif key[:-2] in my_methods:
+                    my_methods[key[:-2]](data[0])
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
