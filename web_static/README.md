@@ -11,9 +11,12 @@
 	</tr>
 	<tr>
 		<td>0-index.html</td>
-		<td>Write an HTML page that displays a header and a footer.</td>
+		<td>Write an HTML page that displays a header and a footer (Inline Styling</td>
 	</tr>
-
+	<tr>
+		<td>1-index.html</td>
+		<td>HTML with style in header</td>
+	</tr>
 </table>
 <br>
 <strong>Authors: <a href="https://twitter.com/micael_sosa" target="_blank">Michael Sosa</a></strong><small>for Holberton School 2019</small>
