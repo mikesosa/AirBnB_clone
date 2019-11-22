@@ -49,6 +49,14 @@ button:hover{
 	opacity: 90%;
 }
 
+.locations .popover {
+	transform: translateX(-1px);
+}
+
+.amenities .popover {
+	transform: translateX(-5px);
+}
+
 .popover {
 	position: absolute;
 	width: 25%;
@@ -56,7 +64,6 @@ button:hover{
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
 	margin-top: 17px;
-	transform: translateX(-1px);
 	display: none;
 }
 
