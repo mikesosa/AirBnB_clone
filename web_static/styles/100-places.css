@@ -1,0 +1,160 @@
+body {
+  margin-bottom: 10%;
+}
+
+hr {
+  border-color: #DDDDDD;
+  border-width: 0.8px;
+}
+
+.places .places_div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.places h1 {
+  font-size: 30px;
+  text-align: left;
+  padding-left: 5%;
+}
+
+.places h2 {
+  font-size: 30px;
+  margin: auto;
+  margin-left: 32%;
+}
+
+.places_div article {
+  width: 390px;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #FF5A5F;
+  border-radius: 4px;
+  min-height: 630px; 
+  /* Optional box-shadow */
+  -webkit-box-shadow: 9px 10px 25px -17px rgba(0,0,0,0.75);
+  -moz-box-shadow: 9px 10px 25px -17px rgba(0,0,0,0.75);
+  box-shadow: 9px 10px 25px -17px rgba(0,0,0,0.75);
+}
+
+.article_header {
+/*  text-align: center;
+  justify-content: center;
+  flex-direction: row;*/
+  display: flex;
+  margin-bottom: 5%;
+}
+
+.price_by_night {
+  color: #FF5A5F;
+  border: 4px solid #FF5A5F;
+  border-radius: 50%;
+  min-width: 60px;
+  height: 60px;
+  font-size: 25px;
+  display: table;
+  text-align: center;
+}
+
+.price_by_night p {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.information {
+  height: 80px;
+  border-top: 1px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.information p {
+  text-align: center;
+  margin-top: 58%;
+}
+
+.max_guest, .number_rooms, .number_bathrooms {
+  width: 100px;
+}
+
+.max_guest {
+  background: url("../images/icon_group.png") no-repeat 49% 25%;
+}
+
+.number_bathrooms {
+  background: url("../images/icon_bath.png") no-repeat 49% 25%;
+}
+
+.number_rooms {
+  background: url("../images/icon_bed.png") no-repeat 49% 25%;
+}
+
+.user p {
+    margin-bottom: 0;
+    margin-top: 4%;
+}
+
+.description {
+  /* Intranet says do nothing?? */
+}
+
+.amenities_places, .reviews  {
+  margin-top: 30px;
+}
+
+.places_subheaders {
+  border-bottom: 1px solid #DDDDDD;
+  display: flex;
+  padding-bottom: 5px;
+}
+
+.places_subheaders h2 {
+  font-size: 16px;
+  margin: 0px;
+}
+
+.places ul {
+  list-style: none;
+  margin-left: -10%;
+}
+
+.amenities_places ul li {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  text-align: left;
+  font-size: 16px;
+  padding-left: 40px;
+}
+
+.iconTV {
+  background: url("../images/icon_tv.png") no-repeat;
+  background-size: 30px;
+  background-position: left;
+}
+
+.iconPets {
+  background: url("../images/icon_pets.png") no-repeat;
+  background-size: 30px;
+  background-position: left;
+}
+
+.iconWifi {
+  background: url("../images/icon_wifi.png") no-repeat;
+  background-size: 30px;
+  background-position: left;
+}
+
+.reviews h3 {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+
+.reviews p {
+  font-size: 12px;
+  margin-top: 4px;
+}
