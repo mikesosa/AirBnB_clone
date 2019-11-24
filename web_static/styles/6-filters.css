@@ -80,6 +80,7 @@ button:hover{
 .popover li {
   margin-left: -15px;
   padding: 0;
+  cursor: pointer;
 }
 
 .popover ul li ul li {
